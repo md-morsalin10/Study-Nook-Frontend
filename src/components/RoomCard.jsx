@@ -1,15 +1,16 @@
 import React from 'react';
-import { Card, Button } from "@heroui/react"; 
+import { Card, Button } from "@heroui/react";
 import { HiStar, HiOutlineLocationMarker, HiUsers } from "react-icons/hi";
 import { FaCircle } from "react-icons/fa6";
 import Image from 'next/image';
+import Link from 'next/link';
 
 const RoomCard = ({ room }) => {
     const { _id, name, imageUrl, hourlyRate, floor, capacity, amenities } = room;
 
     return (
         <Card className="max-w-87 border border-gray-200 shadow-sm rounded-2xl overflow-hidden bg-white hover:shadow-md transition-shadow">
-            
+
             {/* Image Section - Fixed Height and Relative Position */}
             <div className="relative w-full h-55 p-3">
                 <div className="relative w-full h-full overflow-hidden rounded-xl">
@@ -22,7 +23,7 @@ const RoomCard = ({ room }) => {
                         priority={false}
                     />
                 </div>
-                
+
                 {/* Available Badge */}
                 <div className="absolute top-6 right-6 z-10 flex items-center gap-1.5 bg-black/50 backdrop-blur-md text-white text-[10px] font-medium px-2.5 py-1 rounded-full border border-white/20">
                     <FaCircle className="text-green-400 w-1.5 h-1.5" />
@@ -62,15 +63,17 @@ const RoomCard = ({ room }) => {
             <div className="px-4 py-5 flex justify-between items-center border-t border-gray-100 mt-4">
                 <div className="flex flex-col">
                     <p className="text-xl font-extrabold text-gray-900">
-                        ${hourlyRate}.00 
+                        ${hourlyRate}.00
                         <span className="text-xs font-medium text-gray-400 ml-1">/ hour</span>
                     </p>
                 </div>
-                <Button 
+                <Link href={`/rooms/${_id}`}>    
+                <Button
                     className="bg-[#0F172A] text-white font-bold rounded-xl px-5 py-2 h-10 text-sm"
                 >
                     Book Now
                 </Button>
+                </Link>
             </div>
         </Card>
     );
