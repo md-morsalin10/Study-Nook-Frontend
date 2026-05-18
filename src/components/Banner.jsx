@@ -1,6 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
 import { IoMdCheckmark } from 'react-icons/io';
+import Image from 'next/image';
+import banner from "@/assets/classroom.png"
 
 const Banner = () => {
     return (
@@ -54,10 +56,10 @@ const Banner = () => {
                 {/* Right Side: Figma Style Image/Card Grid */}
                 <div className="relative">
                     <div className="relative z-20 rounded-3xl overflow-hidden border-4 border-gray-800 shadow-2xl transform lg:rotate-2 hover:rotate-0 transition-transform duration-500">
-                        <img
-                            src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1000"
+                        <Image
+                            src={banner}
                             alt="Study Room"
-                            className="w-full h-[450px] object-cover"
+                            className="w-full h-112 object-cover"
                         />
                     </div>
 
