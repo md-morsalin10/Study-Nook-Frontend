@@ -23,7 +23,7 @@ const Navbar = () => {
     );
 
     return (
-      
+
         <div className='bg-[#0F172A] text-white border-b border-gray-800 sticky top-0 z-50'>
             <div className="navbar container mx-auto py-3">
                 <div className="navbar-start">
@@ -54,11 +54,13 @@ const Navbar = () => {
                 </div>
 
                 <div className="navbar-end gap-4">
-                    <button className="text-sm font-medium hover:text-[#C5A358] transition-colors hidden sm:block">
-                        Login
-                    </button>
-                    <Link 
-                        href="/register" 
+                    <Link href={'/login'}>
+                        <button className="text-sm font-medium hover:text-[#C5A358] transition-colors hidden sm:block">
+                            Login
+                        </button>
+                    </Link>
+                    <Link
+                        href={"/signup"}
                         className="btn bg-[#C5A358] hover:bg-[#a6894a] border-none text-[#0F172A] font-bold px-6 min-h-0 h-10"
                     >
                         Register

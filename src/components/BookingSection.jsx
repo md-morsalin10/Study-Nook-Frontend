@@ -80,7 +80,7 @@ const BookingSection = ({ room }) => {
                     {isOwner && (
                         <div className="flex gap-3">
                             <button className="flex-1 py-2.5 border border-[#0F172A] text-[#0F172A] text-sm font-semibold rounded-xl hover:bg-slate-50 transition-all flex items-center justify-center gap-2 cursor-pointer">
-                                <i className="ti ti-edit text-base" />
+                              
                                 Edit
                             </button>
                             <button className="flex-1 py-2.5 border border-red-200 text-red-500 text-sm font-semibold rounded-xl hover:bg-red-50 transition-all flex items-center justify-center gap-2 cursor-pointer">
