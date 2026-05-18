@@ -28,7 +28,7 @@ const Footer = () => {
     return (
         <footer className="bg-[#0F172A] relative">
         
-            <div className="h-[2px] w-full bg-linear-to-r from-transparent via-[#F59E0B] to-transparent opacity-40" />
+            <div className="h-0.5 w-full bg-linear-to-r from-transparent via-[#F59E0B] to-transparent opacity-40" />
 
             <div className="max-w-7xl mx-auto px-6 lg:px-10 pt-16 pb-8">
             
@@ -46,7 +46,7 @@ const Footer = () => {
                                 StudyNook<span className="text-[#F59E0B]">.</span>
                             </span>
                         </Link>
-                        <p className="text-sm text-slate-400 leading-relaxed mb-6 max-w-[230px]">
+                        <p className="text-sm text-slate-400 leading-relaxed mb-6 max-w-57">
                             Your go-to platform for booking quiet, private study rooms in libraries. Focus better, book smarter.
                         </p>
                         <span className="inline-flex items-center gap-1.5 bg-amber-500/10 text-amber-400 text-xs font-semibold px-3 py-1.5 rounded-full border border-amber-500/20">
@@ -85,7 +85,7 @@ const Footer = () => {
                         <div className="flex flex-col gap-4">
                             {contactInfo.map((item) => (
                                 <div key={item.text} className="flex items-start gap-3">
-                                    <div className="w-8 h-8 rounded-md bg-slate-800 border border-slate-700 flex items-center justify-center flex-shrink-0">
+                                    <div className="w-8 h-8 rounded-md bg-slate-800 border border-slate-700 flex items-center justify-center shrink-0">
                                         <i className={`ti ${item.icon} text-amber-400 text-sm`} />
                                     </div>
                                     <span className="text-sm text-slate-400 leading-relaxed pt-1">
