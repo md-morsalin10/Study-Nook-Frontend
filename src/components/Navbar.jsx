@@ -14,8 +14,6 @@ const Navbar = () => {
         await authClient.signOut();
     }
 
-
-
 const link = (
     <>
         <li>
