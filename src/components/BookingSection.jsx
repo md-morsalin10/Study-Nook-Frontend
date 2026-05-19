@@ -1,13 +1,17 @@
-// components/BookingSection.jsx
 'use client';
-import Link from 'next/link';
 
+import React, { useState } from 'react'; // useState ইম্পোর্ট করা হলো
+import { authClient } from '@/lib/auth-client';
+import Link from 'next/link';
+import BookingModal from './BookingModal'; // মোডাল কম্পোনেন্টটি ইম্পোর্ট করে নিন
 
 const BookingSection = ({ room }) => {
+    const [showModal, setShowModal] = useState(false); // মোডাল ওপেন/ক্লোজ স্টেট
+    const { data: session } = authClient.useSession();
+    const currentUser = session?.user;
     
-    // TODO: replace with actual auth check
-    const currentUser = null;
-    const isOwner = currentUser?._id === room.ownerId;
+    // Better Auth অনুযায়ী .id দিয়ে ওনারশিপ চেক করা হলো
+    const isOwner = currentUser?.id === room.ownerId;
 
     const { name, hourlyRate, floor, capacity, amenities = [], bookingCount = 0 } = room;
 
@@ -16,7 +20,7 @@ const BookingSection = ({ room }) => {
             <div className="bg-white rounded-2xl border-2 border-amber-200 shadow-lg shadow-amber-50 overflow-hidden">
 
                 {/* Card Header */}
-                <div className="bg-linear-to-r from-[#0F172A] to-[#1E293B] px-6 py-5">
+                <div className="bg-[#0F172A] px-6 py-5">
                     <p className="text-amber-400 text-xs font-semibold uppercase tracking-widest mb-1">
                         Hourly Rate
                     </p>
@@ -60,7 +64,7 @@ const BookingSection = ({ room }) => {
                     {/* Book Now / Login to Book */}
                     {currentUser ? (
                         <button
-                            onClick={() => setShowModal(true)}
+                            onClick={() => setShowModal(true)} // মোডাল ওপেন হবে
                             className="w-full py-3.5 bg-[#F59E0B] hover:bg-[#D97706] text-[#0F172A] font-bold text-sm rounded-xl transition-all duration-200 flex items-center justify-center gap-2 shadow-md shadow-amber-200 cursor-pointer"
                         >
                             <i className="ti ti-calendar-plus text-base" />
@@ -80,7 +84,6 @@ const BookingSection = ({ room }) => {
                     {isOwner && (
                         <div className="flex gap-3">
                             <button className="flex-1 py-2.5 border border-[#0F172A] text-[#0F172A] text-sm font-semibold rounded-xl hover:bg-slate-50 transition-all flex items-center justify-center gap-2 cursor-pointer">
-                              
                                 Edit
                             </button>
                             <button className="flex-1 py-2.5 border border-red-200 text-red-500 text-sm font-semibold rounded-xl hover:bg-red-50 transition-all flex items-center justify-center gap-2 cursor-pointer">
@@ -105,7 +108,10 @@ const BookingSection = ({ room }) => {
                 Back to all rooms
             </Link>
 
-         
+            {/* মোডাল ওপেন ট্র্রিগার */}
+            {showModal && (
+                <BookingModal room={room} onClose={() => setShowModal(false)} />
+            )}
         </div>
     );
 };

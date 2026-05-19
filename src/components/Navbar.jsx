@@ -8,7 +8,6 @@ import React from 'react';
 const Navbar = () => {
 
     const { data: session } = authClient.useSession();
-
     const user = session?.user
 
     const handleSignOut = async () => {
@@ -17,25 +16,29 @@ const Navbar = () => {
 
 
 
-    const link = (
-        <>
-            <li>
-                <Link href={'/'} className="hover:text-[#C5A358] transition-colors focus:bg-transparent active:bg-transparent">Home</Link>
-            </li>
-            <li>
-                <Link href={'/rooms'} className="hover:text-[#C5A358] transition-colors focus:bg-transparent active:bg-transparent">Rooms</Link>
-            </li>
-            <li>
-                <Link href={'/add-room'} className="hover:text-[#C5A358] transition-colors focus:bg-transparent active:bg-transparent">Add Room</Link>
-            </li>
-            <li>
-                <Link href={'/'} className="hover:text-[#C5A358] transition-colors focus:bg-transparent active:bg-transparent">My Listing</Link>
-            </li>
-            <li>
-                <Link href={'/'} className="hover:text-[#C5A358] transition-colors focus:bg-transparent active:bg-transparent">My Booking</Link>
-            </li>
-        </>
-    );
+const link = (
+    <>
+        <li>
+            <Link href={'/'} className="hover:text-[#C5A358] transition-colors focus:bg-transparent active:bg-transparent">Home</Link>
+        </li>
+        <li>
+            <Link href={'/rooms'} className="hover:text-[#C5A358] transition-colors focus:bg-transparent active:bg-transparent">Rooms</Link>
+        </li>
+        {user && (
+            <>
+                <li>
+                    <Link href={'/add-room'} className="hover:text-[#C5A358] transition-colors focus:bg-transparent active:bg-transparent">Add Room</Link>
+                </li>
+                <li>
+                    <Link href={'/my-listings'} className="hover:text-[#C5A358] transition-colors focus:bg-transparent active:bg-transparent">My Listing</Link>
+                </li>
+                <li>
+                    <Link href={'/my-bookings'} className="hover:text-[#C5A358] transition-colors focus:bg-transparent active:bg-transparent">My Booking</Link>
+                </li>
+            </>
+        )}
+    </>
+);
 
     return (
 
