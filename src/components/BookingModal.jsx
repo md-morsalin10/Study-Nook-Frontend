@@ -15,7 +15,6 @@ const BookingModal = ({ room, onClose }) => {
     const { data: session } = authClient.useSession();
     const user = session?.user
 
-    console.log(room)
 
     const today = new Date().toISOString().split('T')[0];
 
@@ -24,7 +23,7 @@ const BookingModal = ({ room, onClose }) => {
     const hours = endHour - startHour;
     const totalCost = hours > 0 ? hours * room.hourlyRate : 0;
 
-   
+
     const endTimeOptions = TIME_SLOTS.filter(t => t > startTime);
 
     const handleBooking = async () => {
@@ -44,7 +43,17 @@ const BookingModal = ({ room, onClose }) => {
         };
 
         console.log("Submitting Booking Info:", bookingInfo);
-       
+        const res = await fetch(`http://localhost:5000/booking`, {
+            method: "POST",
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(bookingInfo)
+        })
+        const data = await res.json()
+        console.log(data, "from frontend");
+        
+
         onClose();
     };
 
