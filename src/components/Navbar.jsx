@@ -1,7 +1,22 @@
+"use client"
+
+import { authClient } from '@/lib/auth-client';
+import { Avatar, Button } from '@heroui/react';
 import Link from 'next/link';
 import React from 'react';
 
 const Navbar = () => {
+
+    const { data: session } = authClient.useSession();
+
+    const user = session?.user
+
+    const handleSignOut = async () => {
+        await authClient.signOut();
+    }
+
+
+
     const link = (
         <>
             <li>
@@ -54,17 +69,35 @@ const Navbar = () => {
                 </div>
 
                 <div className="navbar-end gap-4">
-                    <Link href={'/login'}>
-                        <button className="text-sm font-medium hover:text-[#C5A358] transition-colors hidden sm:block">
-                            Login
-                        </button>
-                    </Link>
-                    <Link
-                        href={"/signup"}
-                        className="btn bg-[#C5A358] hover:bg-[#a6894a] border-none text-[#0F172A] font-bold px-6 min-h-0 h-10"
-                    >
-                        Register
-                    </Link>
+
+                    {user ? <>
+                        <Link href={'/login'}>
+                            <button className="text-sm font-medium hover:text-[#C5A358] transition-colors">
+                                Profile
+                            </button>
+                        </Link>
+
+                        <Avatar>
+                            <Avatar.Image  alt="John Doe" src={user?.image} />
+                            <Avatar.Fallback>{user?.name[0]}</Avatar.Fallback>
+                        </Avatar>
+                        <Button
+                            onClick={handleSignOut}
+                            className={'rounded-xl'}
+                            variant='danger'>Logout</Button>
+                    </> : <>
+                        <Link href={'/login'}>
+                            <button className="text-sm font-medium hover:text-[#C5A358] transition-colors">
+                                Login
+                            </button>
+                        </Link>
+                        <Link
+                            href={"/signup"}
+                            className="btn bg-[#C5A358] hover:bg-[#a6894a] border-none text-[#0F172A] font-bold px-6 min-h-0 h-10"
+                        >
+                            Register
+                        </Link>
+                    </>}
                 </div>
             </div>
         </div>
