@@ -36,6 +36,8 @@ const BookingModal = ({ room, onClose }) => {
             userImage: user?.image,
             roomId: room._id,
             roomName: room.name,
+            roomImage: room.imageUrl,
+            floorInfo: room.floor,
             date,
             startTime,
             endTime,
@@ -52,10 +54,9 @@ const BookingModal = ({ room, onClose }) => {
             body: JSON.stringify(bookingInfo)
         })
         const data = await res.json()
-        console.log(data, "from frontend");
+        // console.log(data, "from frontend");
         toast.success('Room Booked Successfully')
-        
-
+    
         onClose();
     };
 

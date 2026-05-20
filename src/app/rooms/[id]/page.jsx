@@ -21,6 +21,9 @@ const RoomDetailsPage = async ({ params }) => {
         cache: 'no-store',
     });
 
+    console.log(res, "from details page");
+    
+
     if (!res.ok) {
         return (
             <div className="min-h-screen bg-[#F8FAFC] flex flex-col items-center justify-center gap-4">
@@ -34,6 +37,9 @@ const RoomDetailsPage = async ({ params }) => {
     }
 
     const room = await res.json();
+
+    console.log(room, "room from details");
+    
 
     const {
         _id,
@@ -68,7 +74,7 @@ const RoomDetailsPage = async ({ params }) => {
                         <div className="relative rounded-2xl overflow-hidden shadow-md h-90">
                             <Image
                                 src={imageUrl}
-                                alt={name}
+                                alt={room?.name}
                                 fill
                                 className="object-cover"
                             />
@@ -145,7 +151,7 @@ const RoomDetailsPage = async ({ params }) => {
 
                     {/* ── RIGHT COLUMN — Client Component ── */}
                     <div className="lg:col-span-2">
-                        <BookingSection room={room} />
+                        <BookingSection id={id} room={room} />
                     </div>
                 </div>
             </div>

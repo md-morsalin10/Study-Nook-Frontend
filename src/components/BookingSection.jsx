@@ -1,17 +1,26 @@
 'use client';
 
-import React, { useState } from 'react'; // useState ইম্পোর্ট করা হলো
+import React, { useState } from 'react';
 import { authClient } from '@/lib/auth-client';
 import Link from 'next/link';
-import BookingModal from './BookingModal'; // মোডাল কম্পোনেন্টটি ইম্পোর্ট করে নিন
+import BookingModal from './BookingModal';
+import EditModal from './EditModal';
+import DeleteAlert from './DeleteAlert';
+
 
 const BookingSection = ({ room }) => {
-    const [showModal, setShowModal] = useState(false); // মোডাল ওপেন/ক্লোজ স্টেট
+
+
+    const [showModal, setShowModal] = useState(false);
     const { data: session } = authClient.useSession();
     const currentUser = session?.user;
-    
-    // Better Auth অনুযায়ী .id দিয়ে ওনারশিপ চেক করা হলো
+
+  
+
+
     const isOwner = currentUser?.id === room.ownerId;
+   
+
 
     const { name, hourlyRate, floor, capacity, amenities = [], bookingCount = 0 } = room;
 
@@ -45,13 +54,12 @@ const BookingSection = ({ room }) => {
                     {/* Info rows */}
                     <div className="flex flex-col gap-3">
                         {[
-                            { icon: 'ti-users', label: 'Capacity', value: `${capacity} people` },
-                            { icon: 'ti-building', label: 'Floor', value: floor },
-                            { icon: 'ti-sparkles', label: 'Amenities', value: `${amenities.length} included` },
+                            { label: 'Capacity', value: `${capacity} people` },
+                            { label: 'Floor', value: floor },
+                            { label: 'Amenities', value: `${amenities.length} included` },
                         ].map((row) => (
                             <div key={row.label} className="flex items-center justify-between text-sm">
                                 <span className="text-slate-400 flex items-center gap-2">
-                                    <i className={`ti ${row.icon} text-slate-300`} />
                                     {row.label}
                                 </span>
                                 <span className="font-semibold text-[#0F172A]">{row.value}</span>
@@ -64,7 +72,7 @@ const BookingSection = ({ room }) => {
                     {/* Book Now / Login to Book */}
                     {currentUser ? (
                         <button
-                            onClick={() => setShowModal(true)} // মোডাল ওপেন হবে
+                            onClick={() => setShowModal(true)}
                             className="w-full py-3.5 bg-[#F59E0B] hover:bg-[#D97706] text-[#0F172A] font-bold text-sm rounded-xl transition-all duration-200 flex items-center justify-center gap-2 shadow-md shadow-amber-200 cursor-pointer"
                         >
                             <i className="ti ti-calendar-plus text-base" />
@@ -83,13 +91,12 @@ const BookingSection = ({ room }) => {
                     {/* Owner Actions */}
                     {isOwner && (
                         <div className="flex gap-3">
-                            <button className="flex-1 py-2.5 border border-[#0F172A] text-[#0F172A] text-sm font-semibold rounded-xl hover:bg-slate-50 transition-all flex items-center justify-center gap-2 cursor-pointer">
-                                Edit
-                            </button>
-                            <button className="flex-1 py-2.5 border border-red-200 text-red-500 text-sm font-semibold rounded-xl hover:bg-red-50 transition-all flex items-center justify-center gap-2 cursor-pointer">
-                                <i className="ti ti-trash text-base" />
-                                Delete
-                            </button>
+                            <div className='flex-1'>
+                                <EditModal room={room}/>
+                            </div>
+                            <div className='flex-1'>
+                                <DeleteAlert/>
+                            </div>
                         </div>
                     )}
 
@@ -108,10 +115,11 @@ const BookingSection = ({ room }) => {
                 Back to all rooms
             </Link>
 
-            {/* মোডাল ওপেন ট্র্রিগার */}
+
             {showModal && (
                 <BookingModal room={room} onClose={() => setShowModal(false)} />
             )}
+
         </div>
     );
 };

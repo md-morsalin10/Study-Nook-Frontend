@@ -71,7 +71,7 @@ const RoomCard = ({ room }) => {
                 <Button
                     className="bg-[#0F172A] text-white font-bold rounded-xl px-5 py-2 h-10 text-sm"
                 >
-                    Book Now
+                    View Details
                 </Button>
                 </Link>
             </div>
