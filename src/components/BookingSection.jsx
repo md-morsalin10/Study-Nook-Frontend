@@ -95,7 +95,7 @@ const BookingSection = ({ room }) => {
                                 <EditModal room={room}/>
                             </div>
                             <div className='flex-1'>
-                                <DeleteAlert/>
+                                <DeleteAlert room={room}/>
                             </div>
                         </div>
                     )}

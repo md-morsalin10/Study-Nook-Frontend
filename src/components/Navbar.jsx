@@ -4,6 +4,7 @@ import { authClient } from '@/lib/auth-client';
 import { Avatar, Button } from '@heroui/react';
 import Link from 'next/link';
 import React from 'react';
+import NavbarProfileDropdown from './NavbarProfileDropdown';
 
 const Navbar = () => {
 
@@ -72,19 +73,12 @@ const link = (
                 <div className="navbar-end gap-4">
 
                     {user ? <>
-                        <Link href={'/login'}>
-                            <button className="text-sm font-medium hover:text-[#C5A358] transition-colors">
-                                Profile
-                            </button>
-                        </Link>
-
-                        <Avatar>
-                            <Avatar.Image  alt="John Doe" src={user?.image} />
-                            <Avatar.Fallback>{user?.name[0]}</Avatar.Fallback>
-                        </Avatar>
+                    
+                        <NavbarProfileDropdown/>
+                      
                         <Button
                             onClick={handleSignOut}
-                            className={'rounded-xl'}
+                            className={'rounded-xl hidden md:block'}
                             variant='danger'>Logout</Button>
                     </> : <>
                         <Link href={'/login'}>

@@ -1,12 +1,39 @@
 "use client";
 import { TriangleExclamation } from "@gravity-ui/icons";
 import { AlertDialog, Button } from "@heroui/react";
+import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
 
-const DeleteAlert = () => {
+
+const DeleteAlert = ({ room }) => {
+
+    const router = useRouter(); 
+    const { _id } = room;
+
+    const handleDelete = async () => {
+     
+        try {
+            const res = await fetch(`http://localhost:5000/rooms/${_id}`, {
+                method: "DELETE",
+                headers: {
+                    'content-type': 'application/json'
+                }
+            });
+
+            const data = await res.json();
+            console.log("Deleted successfully:", data);
+            toast.success(`${room.name} deleted successfully`)
+
+            router.push('/rooms');
+            router.refresh();
+        } catch (error) {
+            toast.error(`Error deleting room:`, error)
+        }
+    };
+
     return (
         <div>
             <AlertDialog>
-                {/* ট্রিগার বাটন টেক্সট পরিবর্তন করে Delete Room করা হলো */}
                 <Button
                     className={'py-6 w-full border border-red-200 text-sm font-semibold rounded-xl transition-all flex items-center justify-center gap-2 cursor-pointer'}
                     variant="danger"
@@ -39,7 +66,9 @@ const DeleteAlert = () => {
                                 <Button className="w-full" slot="close">
                                     Cancel
                                 </Button>
-                                <Button className="w-full" slot="close" variant="danger">
+                                <Button
+                                    onClick={handleDelete}
+                                    className="w-full" slot="close" variant="danger">
                                     Yes, Delete Room
                                 </Button>
                             </AlertDialog.Footer>

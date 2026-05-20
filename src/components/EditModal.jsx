@@ -11,7 +11,7 @@ const EditModal = ({ room }) => {
 
     const { name, description, hourlyRate, floor, capacity, amenities = [], imageUrl, _id } = room
 
-    console.log(room);
+    // console.log(room);
 
 
     const toggleAmenity = (value) => {
@@ -33,7 +33,7 @@ const EditModal = ({ room }) => {
         data.ownerName = user?.name
 
 
-        console.log(data);
+        // console.log(data);
 
         const res = await fetch(`http://localhost:5000/rooms/${_id}`, {
             method: "PATCH",
@@ -43,7 +43,7 @@ const EditModal = ({ room }) => {
             body: JSON.stringify(data)
         })
         const roomData = await res.json();
-        console.log(roomData, "From modal");
+        // console.log(roomData, "From modal");
 
 
     };

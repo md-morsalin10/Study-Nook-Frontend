@@ -15,15 +15,22 @@ const MyListingPage = async () => {
 
     return (
         <div className='container mx-auto'>
-            <h2>My Room Listings</h2>
-            <p>Manage your academic study spaces. Update availability, edit details, or
-                remove rooms from the StudyNook catalog.</p>
+            {
+                roomData.length === 0 ? <div>
+                    <h2>No listing data available</h2>
+                </div> :
+                    <div>
+                        <h2>My Room Listings</h2>
+                        <p>Manage your academic study spaces. Update availability, edit details, or
+                            remove rooms from the StudyNook catalog.</p>
+                        <div className='grid grid-cols-4 gap-4'>
+                            {
+                                roomData.map(room => <RoomCard room={room} key={room._id} />)
+                            }
+                        </div>
+                    </div>
+            }
 
-            <div className='grid grid-cols-4 gap-4'>
-                {
-                    roomData.map(room=> <RoomCard room={room} key={room._id}/>)
-                }
-            </div>
         </div>
     );
 };
