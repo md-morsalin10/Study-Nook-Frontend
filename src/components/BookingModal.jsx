@@ -149,7 +149,7 @@ const BookingModal = ({ room, onClose }) => {
                         disabled={!date || !startTime || !endTime}
                         className="w-full py-3.5 bg-[#F59E0B] hover:bg-[#D97706] disabled:opacity-50 disabled:cursor-not-allowed text-[#0F172A] font-bold text-sm rounded-xl transition-all flex items-center justify-center gap-2 cursor-pointer"
                     >
-                        <i className="ti ti-calendar-check text-base" />
+
                         Confirm Booking
                     </button>
 

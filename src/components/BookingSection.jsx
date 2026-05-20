@@ -12,6 +12,7 @@ const BookingSection = ({ room }) => {
 
 
     const [showModal, setShowModal] = useState(false);
+
     const { data: session } = authClient.useSession();
     const currentUser = session?.user;
 
@@ -22,7 +23,7 @@ const BookingSection = ({ room }) => {
    
 
 
-    const { name, hourlyRate, floor, capacity, amenities = [], bookingCount = 0 } = room;
+    const { name, hourlyRate, floor, capacity, amenities = [] } = room;
 
     return (
         <div className="sticky top-24">
@@ -41,15 +42,6 @@ const BookingSection = ({ room }) => {
 
                 {/* Card Body */}
                 <div className="p-6 flex flex-col gap-4">
-
-                    <div className="flex items-center gap-2 text-sm text-slate-500">
-                        <i className="ti ti-calendar-stats text-amber-400 text-base" />
-                        <span>
-                            <span className="font-semibold text-[#0F172A]">{bookingCount}</span> confirmed bookings
-                        </span>
-                    </div>
-
-                    <div className="border-t border-slate-100" />
 
                     {/* Info rows */}
                     <div className="flex flex-col gap-3">
@@ -101,7 +93,6 @@ const BookingSection = ({ room }) => {
                     )}
 
                     <p className="text-center text-xs text-slate-400">
-                        <i className="ti ti-shield-check text-amber-400 mr-1" />
                         Free cancellation before booking date
                     </p>
                 </div>
@@ -109,9 +100,8 @@ const BookingSection = ({ room }) => {
 
             <Link
                 href="/rooms"
-                className="mt-4 flex items-center justify-center gap-2 text-sm text-slate-400 hover:text-amber-500 transition-colors"
+                className="mt-4 flex items-center justify-center gap-2 text-sm text-slate-500 hover:text-amber-500 transition-colors"
             >
-                <i className="ti ti-arrow-left text-sm" />
                 Back to all rooms
             </Link>
 
