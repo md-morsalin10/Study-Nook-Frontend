@@ -5,7 +5,7 @@ import { Avatar, Button } from '@heroui/react';
 import Link from 'next/link';
 import React from 'react';
 import NavbarProfileDropdown from './NavbarProfileDropdown';
-import { usePathname } from 'next/navigation';
+import { redirect, usePathname } from 'next/navigation';
 
 const Navbar = () => {
     const pathName = usePathname()
@@ -15,6 +15,7 @@ const Navbar = () => {
 
     const handleSignOut = async () => {
         await authClient.signOut();
+        redirect('/')
     }
 
     const link = (

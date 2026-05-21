@@ -6,7 +6,7 @@ import banner from "@/assets/classroom.png"
 
 const Banner = () => {
     return (
-        <div className="relative bg-[#0F172A] min-h-150 flex items-center overflow-hidden">
+        <div className="relative bg-[#0F172A] min-h-150 flex items-center py-5 overflow-hidden">
           
             <div className="absolute top-0 right-0 w-125 h-125 bg-[#C5A358] opacity-5 blur-[120px] rounded-full"></div>
 
@@ -15,7 +15,7 @@ const Banner = () => {
                 {/* Left Side: Content */}
                 <div className="space-y-6">
                     <div className="inline-block px-4 py-1 rounded-full bg-[#C5A358]/10 border border-[#C5A358]/20">
-                        <span className="text-[#C5A358] text-sm font-medium">✨ Quiet rooms, on demand</span>
+                        <span className="text-[#C5A358] text-sm font-medium">Quiet rooms, on demand</span>
                     </div>
 
                     <h1 className="text-5xl lg:text-7xl font-bold text-white leading-[1.1]">
@@ -70,8 +70,8 @@ const Banner = () => {
                              <IoMdCheckmark size={25}/>
                             </div>
                             <div>
-                                <p className="text-white font-bold">Booking Confirmed</p>
-                                <p className="text-gray-400 text-xs">Zen Corner - 2 hours</p>
+                                <p className="text-white font-bold">Focus Mode</p>
+                                <p className="text-gray-400 text-xs">Zero distractions, pure success</p>
                             </div>
                         </div>
                     </div>

@@ -2,13 +2,13 @@
 import React from 'react';
 import { Card, Button, Form, TextField, Input, Label, FieldError } from "@heroui/react";
 import { authClient } from '@/lib/auth-client';
-import { useRouter } from 'next/navigation';
+import { redirect, useRouter } from 'next/navigation';
 import { FcGoogle } from 'react-icons/fc';
 import Link from 'next/link';
+import toast from 'react-hot-toast';
 
 const LoginPage = () => {
     const router = useRouter();
-
     const onSubmit = async (e) => {
         e.preventDefault();
         const formData = new FormData(e.currentTarget);
@@ -20,11 +20,11 @@ const LoginPage = () => {
         });
         console.log(data, "data");
         if (data) {
-            alert('Login Successful');
-            // router.push("/");
+            toast.success('Login Successful');
+            router.push("/");
         }
         if (error) {
-            alert(error.message);
+            toast.error(error.message);
         }
        
         
@@ -34,17 +34,18 @@ const LoginPage = () => {
         await authClient.signIn.social({
             provider: "google",
         });
+        router.push("/");
     }
 
     return (
         <div className="min-h-screen bg-[#0F172A] flex items-center justify-center px-6 py-12">
-            {/* Login Card */}
+          {/* Login Card */}
             <Card className="w-full max-w-md bg-[#1E293B] border border-slate-700 shadow-2xl rounded-[32px] p-10 relative overflow-hidden">
                 
-                {/* Decorative Background Glow */}
+              
                 <div className="absolute -top-24 -left-24 w-48 h-48 bg-amber-500/10 blur-[80px] rounded-full" />
 
-                {/* Header Section */}
+               
                 <div className="text-center mb-10 relative z-10">
                     <h1 className="text-3xl font-black text-white tracking-tight mb-2">
                         Welcome <span className="text-amber-500">Back</span>
@@ -54,7 +55,7 @@ const LoginPage = () => {
 
                 <Form className="flex flex-col gap-6 relative z-10" onSubmit={onSubmit}>
                     <div className="space-y-5">
-                        {/* Email Field */}
+                    
                         <TextField isRequired name="email" type="email">
                             <Label className="text-slate-300 text-xs font-bold uppercase tracking-[0.15em] ml-1 mb-2 block">Email Address</Label>
                             <Input 
@@ -64,7 +65,7 @@ const LoginPage = () => {
                             <FieldError className="text-red-400 text-xs mt-1" />
                         </TextField>
 
-                        {/* Password Field */}
+                       
                         <TextField isRequired name="password" type="password">
                             <div className="flex justify-between items-center mb-2 px-1">
                                 <Label className="text-slate-300 text-xs font-bold uppercase tracking-[0.15em] block">Password</Label>
@@ -78,7 +79,7 @@ const LoginPage = () => {
                         </TextField>
                     </div>
 
-                    {/* Submit Button */}
+              
                     <Button 
                         type="submit" 
                         className="w-full py-7 bg-amber-500 hover:bg-amber-600 text-[#0F172A] font-black rounded-2xl shadow-xl shadow-amber-500/20 transition-all uppercase tracking-[0.2em] text-xs mt-4"
@@ -87,14 +88,13 @@ const LoginPage = () => {
                     </Button>
                 </Form>
 
-                {/* Alternative Login Divider */}
                 <div className="flex items-center gap-4 my-8 relative z-10">
                     <div className="h-px bg-slate-700 flex-1" />
                     <span className="text-slate-500 text-[10px] font-bold tracking-[0.3em]">OR</span>
                     <div className="h-px bg-slate-700 flex-1" />
                 </div>
 
-                {/* Google Sign In */}
+              
                 <Button
                     onClick={handleGoogleBtn}
                     className="w-full py-7 bg-transparent border-2 border-slate-700 text-white hover:bg-slate-800 rounded-2xl flex items-center justify-center gap-3 transition-all font-bold text-sm mb-2"
