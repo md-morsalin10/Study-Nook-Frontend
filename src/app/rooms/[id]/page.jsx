@@ -1,8 +1,9 @@
-// app/rooms/[id]/page.jsx
 
 import Image from 'next/image';
 import Link from 'next/link';
 import BookingSection from '@/components/BookingSection';
+import { auth } from '@/lib/auth';
+import { headers } from 'next/headers';
 
 const amenityIcons = {
     whiteboard: 'ti-writing',
@@ -17,12 +18,21 @@ const amenityIcons = {
 const RoomDetailsPage = async ({ params }) => {
     const { id } = await params;
 
-    const res = await fetch(`http://localhost:5000/rooms/${id}`, {
+    const { token } = await auth.api.getToken({
+        headers: await headers()
+    })
+
+    // console.log(token, 'token');
+
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_ULR}/rooms/${id}`, {
         cache: 'no-store',
+        headers: {
+            authorization: `Bearer ${token}`
+        }
     });
 
     console.log(res, "from details page");
-    
+
 
     if (!res.ok) {
         return (
@@ -39,7 +49,7 @@ const RoomDetailsPage = async ({ params }) => {
     const room = await res.json();
 
     console.log(room, "room from details");
-    
+
 
     const {
         _id,

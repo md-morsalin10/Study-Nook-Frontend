@@ -9,7 +9,16 @@ const MyBookingPage = async () => {
     })
     const user = session?.user
 
-    const res = await fetch(`http://localhost:5000/booking/${user?.id}`)
+    const { token } = await auth.api.getToken({
+        headers: await headers()
+    })
+
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_ULR}/booking/${user?.id}`, {
+        headers: {
+            authorization: `Bearer ${token}`
+        }
+
+    })
     const BookingData = await res.json()
 
     console.log(BookingData.length);
@@ -22,7 +31,7 @@ const MyBookingPage = async () => {
                 </div>
                     :
                     <div>
-                        <h2 className='text-3xl font-bold'>My Booking</h2>
+                        <h2 className='text-3xl font-bold text-[#0F172A]'>My Booking</h2>
                         <p className='text-muted'>Manage your upcoming and past study sessions.</p>
 
                         <div className='py-3'>

@@ -5,8 +5,10 @@ import { Avatar, Button } from '@heroui/react';
 import Link from 'next/link';
 import React from 'react';
 import NavbarProfileDropdown from './NavbarProfileDropdown';
+import { usePathname } from 'next/navigation';
 
 const Navbar = () => {
+    const pathName = usePathname()
 
     const { data: session } = authClient.useSession();
     const user = session?.user
@@ -15,29 +17,29 @@ const Navbar = () => {
         await authClient.signOut();
     }
 
-const link = (
-    <>
-        <li>
-            <Link href={'/'} className="hover:text-[#C5A358] transition-colors focus:bg-transparent active:bg-transparent">Home</Link>
-        </li>
-        <li>
-            <Link href={'/rooms'} className="hover:text-[#C5A358] transition-colors focus:bg-transparent active:bg-transparent">Rooms</Link>
-        </li>
-        {user && (
-            <>
-                <li>
-                    <Link href={'/add-room'} className="hover:text-[#C5A358] transition-colors focus:bg-transparent active:bg-transparent">Add Room</Link>
-                </li>
-                <li>
-                    <Link href={'/my-listings'} className="hover:text-[#C5A358] transition-colors focus:bg-transparent active:bg-transparent">My Listing</Link>
-                </li>
-                <li>
-                    <Link href={'/my-bookings'} className="hover:text-[#C5A358] transition-colors focus:bg-transparent active:bg-transparent">My Booking</Link>
-                </li>
-            </>
-        )}
-    </>
-);
+    const link = (
+        <>
+            <li>
+                <Link href={'/'} className={`${pathName === '/' ? 'text-[#C5A358] border border-[#C5A358]' : ''} hover:text-[#C5A358] transition-colors focus:bg-transparent active:bg-transparent`}>Home</Link>
+            </li>
+            <li>
+                <Link href={'/rooms'} className={`${pathName === '/rooms' ? 'text-[#C5A358] border border-[#C5A358]' : ''} hover:text-[#C5A358] transition-colors focus:bg-transparent active:bg-transparent`}>Rooms</Link>
+            </li>
+            {user && (
+                <>
+                    <li>
+                        <Link href={'/add-room'} className={`${pathName === '/add-room' ? 'text-[#C5A358] border border-[#C5A358]' : ''} hover:text-[#C5A358] transition-colors focus:bg-transparent active:bg-transparent`}>Add Room</Link>
+                    </li>
+                    <li>
+                        <Link href={'/my-listings'} className={`${pathName === '/my-listings' ? 'text-[#C5A358] border border-[#C5A358]' : ''} hover:text-[#C5A358] transition-colors focus:bg-transparent active:bg-transparent`}>My Listing</Link>
+                    </li>
+                    <li>
+                        <Link href={'/my-bookings'} className={`${pathName==='/my-bookings' ? 'text-[#C5A358] border border-[#C5A358]':''} hover:text-[#C5A358] transition-colors focus:bg-transparent active:bg-transparent`}>My Booking</Link>
+                    </li>
+                </>
+            )}
+        </>
+    );
 
     return (
 
@@ -73,9 +75,9 @@ const link = (
                 <div className="navbar-end gap-4">
 
                     {user ? <>
-                    
-                        <NavbarProfileDropdown/>
-                      
+
+                        <NavbarProfileDropdown />
+
                         <Button
                             onClick={handleSignOut}
                             className={'rounded-xl hidden md:block'}

@@ -7,8 +7,17 @@ const MyListingPage = async () => {
     const session = await auth.api.getSession({
         headers: await headers() // you need to pass the headers object.
     })
+
+    const { token } = await auth.api.getToken({
+        headers: await headers()
+    })
+
     const user = session?.user
-    const res = await fetch(`http://localhost:5000/my-rooms/${user?.id}`)
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_ULR}/my-rooms/${user?.id}`,{
+        headers:{
+            authorization: `Bearer ${token}`
+        }
+    })
     const roomData = await res.json()
 
     console.log(roomData);
@@ -23,7 +32,7 @@ const MyListingPage = async () => {
                         <h2>My Room Listings</h2>
                         <p>Manage your academic study spaces. Update availability, edit details, or
                             remove rooms from the StudyNook catalog.</p>
-                        <div className='grid grid-cols-4 gap-4'>
+                        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4'>
                             {
                                 roomData.map(room => <RoomCard room={room} key={room._id} />)
                             }

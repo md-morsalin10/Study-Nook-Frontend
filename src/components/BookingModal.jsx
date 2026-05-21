@@ -46,11 +46,14 @@ const BookingModal = ({ room, onClose }) => {
             totalCost
         };
 
+        const {data:tokenData} = await authClient.token()
+
         console.log("Submitting Booking Info:", bookingInfo);
-        const res = await fetch(`http://localhost:5000/booking`, {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_ULR}/booking`, {
             method: "POST",
             headers: {
-                'content-type': 'application/json'
+                'content-type': 'application/json',
+                authorization: `Berar ${tokenData?.token}`
             },
             body: JSON.stringify(bookingInfo)
         })

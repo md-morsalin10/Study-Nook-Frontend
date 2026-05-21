@@ -35,7 +35,7 @@ const EditModal = ({ room }) => {
 
         // console.log(data);
 
-        const res = await fetch(`http://localhost:5000/rooms/${_id}`, {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_ULR}/rooms/${_id}`, {
             method: "PATCH",
             headers: {
                 'content-type': 'application/json'
