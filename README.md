@@ -18,9 +18,17 @@ A modern, full-stack web application designed to help students, developers, and 
 
 ## 🛠️ Tech Stack & Architecture
 
-* **Frontend Framework:** Next.js (App Router, Version 16+) with Turbopack for lightning-fast hot module reloading.
-* **Styling & Motion:** Tailwind CSS for a highly cohesive utility-first design, interactive custom borders, animations, and micro-interactions.
-* **State & Authentication:** Secure, asynchronous session caching layers mapping owner permissions and access tokens dynamically.
-* **Performance Optimization:** Strategic implementation of hybrid state mounting and dynamic client-side hydration wrappers to entirely bypass layout shifts and server-client mismatch errors (Hydration Fixes).
+This project leverages the **MERN Stack** enhanced with next-generation production tools to ensure complete structural type safety, smooth animations, and high performance.
+
+* **Frontend Architecture:** * **Next.js (App Router):** Utilized for optimized routing, fast rendering, and clean component structures.
+  * **HeroUI & daisyUI:** Integrated together to build a premium, highly cohesive, dark-themed responsive layout with production-ready components.
+  * **Tailwind CSS:** Used for writing clean utility-first styling and managing complex dark theme system configurations.
+  * **Framer Motion:** Powering complex UI micro-interactions, layout transitions, and page load entry animations for an immersive user experience.
+
+* **Backend & Database:**
+  * **Node.js & Express.js:** Scalable server environment managing custom REST APIs, booking pipelines, and room access verification endpoints.
+  * **MongoDB:** A robust, flexible NoSQL database storing structured collections for user profiles, dynamic rooms, slots, and interactive user bookings.
+
+* **State & Authentication Layer:** * **Better-Auth (`authClient.useSession`):** Handles secure client-side and server-side state caching, managing owner permissions, and resolving session mismatches seamlessly during runtime.
 
 
