@@ -6,6 +6,10 @@ import React from 'react';
 import { BiSolidError } from 'react-icons/bi';
 import { PiNoteDuotone } from 'react-icons/pi';
 
+export const metadata = {
+    title: "My Listing - StudyNook",
+};
+
 const MyListingPage = async () => {
     const session = await auth.api.getSession({
         headers: await headers() // you need to pass the headers object.
@@ -31,7 +35,7 @@ const MyListingPage = async () => {
                 roomData.length === 0 ? <div className="min-h-[60vh] flex items-center justify-center px-4 py-12">
                     <div className="bg-[#0F172A] border border-slate-800/60 rounded-3xl p-10 flex flex-col items-center justify-center text-center max-w-md w-full shadow-xl gap-6">
                         <div className="w-20 h-20 rounded-2xl bg-[#1E293B] border border-slate-700/50 flex items-center justify-center">
-                            <PiNoteDuotone className='text-white' size={30}/>
+                            <PiNoteDuotone className='text-white' size={30} />
 
                         </div>
 
@@ -63,7 +67,7 @@ const MyListingPage = async () => {
                         <h2 className='text-3xl font-bold text-[#0F172A] py-2'>My Room Listings</h2>
                         <p className='text-muted text-sm py-2'>Manage your academic study spaces. Update availability, edit details, or
                             remove rooms from the StudyNook catalog.</p>
-                        <div className='pt-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4'>
+                        <div className='pt-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
                             {
                                 roomData.map(room => <RoomCard room={room} key={room._id} />)
                             }

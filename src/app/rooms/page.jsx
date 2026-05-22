@@ -3,6 +3,10 @@ import React from 'react';
 import Form from 'next/form';
 import Link from 'next/link';
 
+export const metadata = {
+    title: "Rooms - StudyNook",
+}
+
 const AllRoomPage = async ({ searchParams }) => {
 
     const params = await searchParams;

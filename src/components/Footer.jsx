@@ -90,7 +90,7 @@ const Footer = () => {
 
                     <div>
                         <h4 className="text-white text-xs font-bold uppercase tracking-wider mb-5 flex items-center gap-2">
-                            <span className="w-3 h-[2px] bg-amber-500 rounded-full" />
+                            <span className="w-3 h-1 bg-amber-500 rounded-full" />
                             Follow Us
                         </h4>
                         <div className="grid grid-cols-2 gap-2.5 mb-6">

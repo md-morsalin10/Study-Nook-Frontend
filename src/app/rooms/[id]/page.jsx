@@ -5,18 +5,14 @@ import BookingSection from '@/components/BookingSection';
 import { auth } from '@/lib/auth';
 import { headers } from 'next/headers';
 
-const amenityIcons = {
-    whiteboard: 'ti-writing',
-    projector: 'ti-device-projector',
-    wifi: 'ti-wifi',
-    power_outlets: 'ti-plug',
-    quiet_zone: 'ti-volume-off',
-    ac: 'ti-air-conditioning',
-    soundproofed: 'ti-ear-off',
+export const metadata = {
+    title: "Room Details - StudyNook",
+    description: "Discover and book premium private study rooms instantly. Focus better, book smarter with StudyNook.",
 };
 
 const RoomDetailsPage = async ({ params }) => {
     const { id } = await params;
+
 
     const { token } = await auth.api.getToken({
         headers: await headers()
@@ -67,20 +63,20 @@ const RoomDetailsPage = async ({ params }) => {
         <div className="min-h-screen bg-[#F8FAFC]">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
 
-                {/* Breadcrumb */}
+
                 <nav className="flex items-center gap-2 text-sm text-slate-400 mb-8">
                     <Link href="/" className="hover:text-amber-500 transition-colors">Home</Link>
                     <Link href="/rooms" className="hover:text-amber-500 transition-colors">Rooms</Link>
                     <span className="text-[#0F172A] font-medium truncate max-w-50">{name}</span>
                 </nav>
 
-                {/* Main Layout */}
+
                 <div className="grid grid-cols-1 lg:grid-cols-5 gap-10">
 
-                    {/* ── LEFT COLUMN ── */}
+
                     <div className="lg:col-span-3 flex flex-col gap-8">
 
-                        {/* Room Image */}
+
                         <div className="relative rounded-2xl overflow-hidden shadow-md h-90">
                             <Image
                                 src={imageUrl}
@@ -94,10 +90,10 @@ const RoomDetailsPage = async ({ params }) => {
                             </span>
                         </div>
 
-                        {/* Room Info Card */}
+
                         <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-6 md:p-8 flex flex-col gap-6">
 
-                            {/* Name + booking count */}
+
                             <div className="flex items-start justify-between gap-4 flex-wrap">
                                 <h1 className="text-2xl md:text-3xl font-bold text-[#0F172A] leading-tight">
                                     {name}
@@ -108,7 +104,7 @@ const RoomDetailsPage = async ({ params }) => {
                                 </span>
                             </div>
 
-                            {/* Quick stats row */}
+
                             <div className="flex flex-wrap gap-2 md:gap-4">
                                 <div className='border p-4 bg-base-200 rounded-2xl border-gray-200'>
                                     <p className='text-sm text-muted text-center font-bold'>Capacity</p>
@@ -127,7 +123,7 @@ const RoomDetailsPage = async ({ params }) => {
 
                             <div className="border-t border-slate-100" />
 
-                            {/* Description */}
+
                             <div>
                                 <h3 className="text-sm font-semibold text-[#0F172A] uppercase tracking-wider mb-3">
                                     About this Room
@@ -148,9 +144,8 @@ const RoomDetailsPage = async ({ params }) => {
                                             key={item}
                                             className="flex items-center gap-2.5 bg-amber-50 border border-amber-100 rounded-xl px-3 py-2.5"
                                         >
-                                            <i className={`ti ${amenityIcons[item] || 'ti-check'} text-amber-500 text-base`} />
                                             <span className="text-xs font-medium text-[#0F172A] capitalize">
-                                                {item.replace('_', ' ')}
+                                                {item}
                                             </span>
                                         </div>
                                     ))}
@@ -159,7 +154,6 @@ const RoomDetailsPage = async ({ params }) => {
                         </div>
                     </div>
 
-                    {/* ── RIGHT COLUMN — Client Component ── */}
                     <div className="lg:col-span-2">
                         <BookingSection id={id} room={room} />
                     </div>

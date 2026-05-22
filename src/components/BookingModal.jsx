@@ -28,7 +28,7 @@ const BookingModal = ({ room, onClose }) => {
     const endTimeOptions = TIME_SLOTS.filter(t => t > startTime);
 
     const handleBooking = async () => {
-        if (!date || !startTime || !endTime) return;
+        if (!date || !startTime || !endTime) return; 
 
         const bookingInfo = {
             userId: user?.id,

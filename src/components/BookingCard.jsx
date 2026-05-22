@@ -48,7 +48,7 @@ const BookingCard = ({ data }) => {
     };
 
     return (
-        <div className="bg-white border-b mb-3 border-slate-100 last:border-none px-6 py-4 flex flex-col md:flex-row md:items-center justify-between gap-4 hover:bg-slate-50/50 transition-colors">
+        <div className="bg-white rounded-2xl border-b mb-3 border-slate-100 last:border-none px-6 py-4 flex flex-col md:flex-row md:items-center justify-between gap-4 hover:bg-slate-50/50 transition-colors">
 
             <div className="flex items-center gap-4 min-w-62 flex-1">
                 <div className="relative w-16 h-12 rounded-xl overflow-hidden border border-slate-100 bg-slate-100 shrink-0">

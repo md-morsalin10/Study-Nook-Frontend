@@ -5,6 +5,10 @@ import Link from 'next/link';
 import React from 'react';
 import { BiSolidError } from 'react-icons/bi';
 
+export const metadata = {
+    title: "My Booking - StudyNook",
+};
+
 const MyBookingPage = async () => {
     const session = await auth.api.getSession({
         headers: await headers()

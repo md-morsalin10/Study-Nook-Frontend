@@ -5,6 +5,7 @@ import { authClient } from '@/lib/auth-client';
 import { useRouter } from 'next/navigation';
 import { FcGoogle } from 'react-icons/fc';
 import Link from 'next/link';
+import toast from 'react-hot-toast';
 
 const SignUpPage = () => {
     const router = useRouter();
@@ -24,11 +25,11 @@ const SignUpPage = () => {
         
 
         if (data) {
-            alert('Sign up Successful');
+            toast.success('Sign up Successful');
             router.push("/");
         }
         if (error) {
-            alert(error.message);
+            toast.error(error.message);
         }
     }
 

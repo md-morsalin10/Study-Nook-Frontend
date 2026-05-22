@@ -4,14 +4,15 @@ import { Card, FieldError, Input, Label, TextField, TextArea, Button, Checkbox, 
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
 
+
 const AddRoomPage = () => {
     const router = useRouter()
     const { data: session } = authClient.useSession();
     const user = session?.user
 
     // console.log(user);
-    
-    
+
+
 
     const [selectedAmenities, setSelectedAmenities] = useState([]);
 
@@ -35,7 +36,7 @@ const AddRoomPage = () => {
 
         console.log(data);
 
-        const {data:tokenData} = await authClient.token()
+        const { data: tokenData } = await authClient.token()
 
         const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_ULR}/rooms`, {
             method: "POST",
@@ -53,16 +54,16 @@ const AddRoomPage = () => {
     };
 
     return (
-       <div className="bg-gray-50 min-h-screen py-10">
+        <div className="bg-gray-50 min-h-screen py-10">
             <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 my-10'>
-            
+
                 <div className="mb-8 text-center md:text-left">
                     <h2 className='text-3xl font-bold text-gray-900 tracking-tight'>Add a New Room</h2>
                     <p className="text-gray-500 mt-2 text-sm">Share your study space with the community</p>
                 </div>
                 <Card className="bg-white shadow-xl shadow-gray-200/60 border border-gray-100 rounded-2xl overflow-hidden">
                     <form onSubmit={onSubmit} className="p-6 md:p-10 space-y-6">
-                    
+
                         <div className="w-full">
                             <TextField name="name" isRequired className="w-full">
                                 <Label className="text-sm font-semibold mb-2 block text-gray-700">Room Name</Label>
@@ -72,7 +73,7 @@ const AddRoomPage = () => {
                                 />
                             </TextField>
                         </div>
-                    
+
                         <div className="w-full">
                             <TextField name="description" isRequired className="w-full">
                                 <Label className="text-sm font-semibold mb-2 block text-gray-700">Room Description</Label>
@@ -162,7 +163,7 @@ const AddRoomPage = () => {
                                 })}
                             </div>
                         </div>
-                 
+
                         <div className="pt-6">
                             <Button
                                 type="submit"
