@@ -50,10 +50,10 @@ const RoomCard = ({ room }) => {
                     {amenities.map((item) => (
                         <div
                             key={item}
-                            className="flex items-center gap-2.5 bg-slate-50 border border-amber-100 rounded-xl px-2 py-2"
+                            className="flex flex-wrap text-center items-center gap-2.5 bg-slate-50 border border-green-100 rounded-xl py-1"
                         >
     
-                            <span className="text-xs font-medium text-[#0F172A] capitalize">
+                            <span className="text-xs flex items-center text-center font-medium text-[#0F172A]">
                                 {item}
                             </span>
                         </div>

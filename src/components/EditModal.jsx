@@ -1,12 +1,15 @@
 "use client";
 import { authClient } from "@/lib/auth-client";
 import { Button, Input, Label, Modal, Surface, TextArea, TextField } from "@heroui/react";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
+import toast from "react-hot-toast";
 
 const EditModal = ({ room }) => {
+    const router = useRouter();
     const { data: session } = authClient.useSession();
     const user = session?.user
-    
+
     const [selectedAmenities, setSelectedAmenities] = useState([]);
 
     const { name, description, hourlyRate, floor, capacity, amenities = [], imageUrl, _id } = room
@@ -43,8 +46,11 @@ const EditModal = ({ room }) => {
             body: JSON.stringify(data)
         })
         const roomData = await res.json();
-        // console.log(roomData, "From modal");
+        console.log(roomData, "From modal");
 
+        if (roomData.modifiedCount > 0) {
+            toast.success("Room updated successfully!");
+        }
 
     };
 

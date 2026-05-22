@@ -38,7 +38,7 @@ const BookingModal = ({ room, onClose }) => {
             roomName: room.name,
             roomImage: room.imageUrl,
             floorInfo: room.floor,
-            status:"Confirmed",
+            status: "Confirmed",
             date,
             startTime,
             endTime,
@@ -46,7 +46,7 @@ const BookingModal = ({ room, onClose }) => {
             totalCost
         };
 
-        const {data:tokenData} = await authClient.token()
+        const { data: tokenData } = await authClient.token()
 
         console.log("Submitting Booking Info:", bookingInfo);
         const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_ULR}/booking`, {
@@ -58,14 +58,17 @@ const BookingModal = ({ room, onClose }) => {
             body: JSON.stringify(bookingInfo)
         })
         const data = await res.json()
-        console.log(data, "from frontend");
-        toast.success('Room Booked Successfully')
-    
-        onClose();
+        if (data.success) {
+            toast.success('Room Booked Successfully');
+            onClose(); 
+        } else {
+            
+            toast.error(data.message || 'This slot is already booked!');
+        }
     };
 
     return (
-        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+        <div className="fixed inset- bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
             <div className="bg-white rounded-2xl shadow-2xl w-full max-w-md relative overflow-hidden">
 
                 {/* Modal Header */}
@@ -74,14 +77,10 @@ const BookingModal = ({ room, onClose }) => {
                         <h2 className="text-white font-bold text-lg">Reserve Your Slot</h2>
                         <p className="text-slate-400 text-xs mt-0.5">{room.name}</p>
                     </div>
-                    <button onClick={onClose} className="text-slate-400 hover:text-white transition-colors cursor-pointer">
-                        <i className="ti ti-x text-xl" />
-                    </button>
                 </div>
 
                 {/* Modal Body */}
                 <div className="p-6 flex flex-col gap-4">
-                    {/* Date */}
                     <div>
                         <label className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1.5 block">Date</label>
                         <input
@@ -89,7 +88,7 @@ const BookingModal = ({ room, onClose }) => {
                             min={today}
                             value={date}
                             onChange={e => setDate(e.target.value)}
-                            className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-[#0F172A] focus:outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-400/20 transition-all"
+                            className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-[#0F172A] focus:outline-none focus:border-amber-400  transition-all"
                         />
                     </div>
 
@@ -100,7 +99,7 @@ const BookingModal = ({ room, onClose }) => {
                             <select
                                 value={startTime}
                                 onChange={e => { setStartTime(e.target.value); setEndTime(''); }}
-                                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-[#0F172A] focus:outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-400/20 transition-all"
+                                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-[#0F172A] focus:outline-none focus:border-amber-400  transition-all"
                             >
                                 <option value="">Select</option>
                                 {TIME_SLOTS.slice(0, -1).map(t => (
@@ -109,12 +108,12 @@ const BookingModal = ({ room, onClose }) => {
                             </select>
                         </div>
                         <div>
-                            <label className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1.5 block">End Time</label>
+                            <label className="text-xs font-semibold text-slate-500 uppercase  mb-1.5 block">End Time</label>
                             <select
                                 value={endTime}
                                 onChange={e => setEndTime(e.target.value)}
                                 disabled={!startTime}
-                                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-[#0F172A] focus:outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-400/20 transition-all disabled:opacity-50"
+                                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-[#0F172A] focus:outline-none focus:border-amber-400  transition-all disabled:opacity-50"
                             >
                                 <option value="">Select</option>
                                 {endTimeOptions.map(t => (
@@ -132,7 +131,6 @@ const BookingModal = ({ room, onClose }) => {
                         </div>
                     )}
 
-                    {/* Special Note */}
                     <div>
                         <label className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1.5 block">
                             Special Note <span className="text-slate-300 normal-case">(optional)</span>
@@ -142,7 +140,7 @@ const BookingModal = ({ room, onClose }) => {
                             value={note}
                             onChange={e => setNote(e.target.value)}
                             placeholder="Any special requirements..."
-                            className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-[#0F172A] focus:outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-400/20 transition-all resize-none"
+                            className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-[#0F172A] focus:outline-none focus:border-amber-400  transition-all resize-none"
                         />
                     </div>
 

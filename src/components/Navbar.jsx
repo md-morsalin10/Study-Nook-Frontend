@@ -74,7 +74,7 @@ const Navbar = () => {
                 </div>
 
                 <div className="navbar-end gap-4">
-
+                    
                     {user ? <>
 
                         <NavbarProfileDropdown />

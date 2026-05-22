@@ -1,4 +1,5 @@
 import Banner from "@/components/Banner";
+import ExtraHomeSection from "@/components/ExtraHomeSection";
 import FeaturesRoom from "@/components/FeaturesRoom";
 
 
@@ -7,6 +8,7 @@ export default function Home() {
     <div>
      <Banner/>
      <FeaturesRoom/>
+     <ExtraHomeSection/>
     </div>
   );
 }
