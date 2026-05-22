@@ -16,13 +16,8 @@ const BookingSection = ({ room }) => {
     const { data: session } = authClient.useSession();
     const currentUser = session?.user;
 
-  
-
-
     const isOwner = currentUser?.id === room.ownerId;
    
-
-
     const { name, hourlyRate, floor, capacity, amenities = [] } = room;
 
     return (

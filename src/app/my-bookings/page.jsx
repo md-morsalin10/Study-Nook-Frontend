@@ -1,4 +1,6 @@
 import BookingCard from '@/components/BookingCard';
+import FadeIn from '@/components/MotionWrapper/FadeIn';
+import ZoomIn from '@/components/MotionWrapper/ZoomIn';
 import { auth } from '@/lib/auth';
 import { headers } from 'next/headers';
 import Link from 'next/link';
@@ -64,12 +66,16 @@ const MyBookingPage = async () => {
                 </div>
                     :
                     <div>
-                        <h2 className='text-3xl font-bold text-[#0F172A]'>My Booking</h2>
-                        <p className='text-muted'>Manage your upcoming and past study sessions.</p>
+                        <ZoomIn delay={0.1}>
+                            <h2 className='text-3xl font-bold text-[#0F172A]'>My Booking</h2>
+                            <p className='text-muted'>Manage your upcoming and past study sessions.</p>
+                        </ZoomIn>
 
                         <div className='py-3'>
                             {
-                                BookingData.map(data => <BookingCard data={data} key={data?._id} />)
+                                BookingData.map((data, index) => <FadeIn delay={index * 0.1} key={data?._id}>
+                                    <BookingCard data={data} />
+                                </FadeIn>)
                             }
                         </div>
                     </div>}

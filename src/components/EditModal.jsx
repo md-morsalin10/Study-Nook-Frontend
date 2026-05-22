@@ -50,6 +50,7 @@ const EditModal = ({ room }) => {
 
         if (roomData.modifiedCount > 0) {
             toast.success("Room updated successfully!");
+            router.refresh()
         }
 
     };

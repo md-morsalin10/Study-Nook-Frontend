@@ -3,6 +3,7 @@ import { authClient } from '@/lib/auth-client';
 import { Card, FieldError, Input, Label, TextField, TextArea, Button, Checkbox, CheckboxGroup } from '@heroui/react';
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
+import toast from 'react-hot-toast';
 
 
 const AddRoomPage = () => {
@@ -47,8 +48,14 @@ const AddRoomPage = () => {
             body: JSON.stringify(data)
         })
         const roomData = await res.json();
-        console.log(roomData);
-
+        // console.log(roomData);
+        
+        if (roomData?.insertedId) {
+            toast.success('Room added successfully! 🎉');
+        }
+        else {
+            toast.error('Failed to add room. Please try again.');
+        }
         router.push('/my-listings')
 
     };

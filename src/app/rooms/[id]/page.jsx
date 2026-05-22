@@ -67,7 +67,7 @@ const RoomDetailsPage = async ({ params }) => {
                 <nav className="flex items-center gap-2 text-sm text-slate-400 mb-8">
                     <Link href="/" className="hover:text-amber-500 transition-colors">Home</Link>
                     <Link href="/rooms" className="hover:text-amber-500 transition-colors">Rooms</Link>
-                    <span className="text-[#0F172A] font-medium truncate max-w-50">{name}</span>
+                    <span className="text-[#0F172A] font-medium max-w-50">{name}</span>
                 </nav>
 
 

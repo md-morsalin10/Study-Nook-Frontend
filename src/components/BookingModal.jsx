@@ -68,10 +68,9 @@ const BookingModal = ({ room, onClose }) => {
     };
 
     return (
-        <div className="fixed inset- bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+        <div className="fixed inset-1 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
             <div className="bg-white rounded-2xl shadow-2xl w-full max-w-md relative overflow-hidden">
 
-                {/* Modal Header */}
                 <div className="bg-linear-to-r from-[#0F172A] to-[#1E293B] px-6 py-5 flex items-center justify-between">
                     <div>
                         <h2 className="text-white font-bold text-lg">Reserve Your Slot</h2>
@@ -79,7 +78,6 @@ const BookingModal = ({ room, onClose }) => {
                     </div>
                 </div>
 
-                {/* Modal Body */}
                 <div className="p-6 flex flex-col gap-4">
                     <div>
                         <label className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1.5 block">Date</label>
@@ -92,7 +90,6 @@ const BookingModal = ({ room, onClose }) => {
                         />
                     </div>
 
-                    {/* Time Row */}
                     <div className="grid grid-cols-2 gap-3">
                         <div>
                             <label className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1.5 block">Start Time</label>
