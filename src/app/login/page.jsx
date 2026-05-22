@@ -34,7 +34,6 @@ const LoginPage = () => {
         await authClient.signIn.social({
             provider: "google",
         });
-        router.push("/");
     }
 
     return (
@@ -105,8 +104,8 @@ const LoginPage = () => {
 
 
                 <p className="text-center text-slate-400 text-sm mt-10 font-medium relative z-10">
-                    Don't have an account?{' '}
-                    <Link href="/register" className="text-amber-500 font-bold hover:underline underline-offset-4 decoration-2 transition-all">
+                    Dont have an account?{' '}
+                    <Link href="/signup" className="text-amber-500 font-bold hover:underline underline-offset-4 decoration-2 transition-all">
                         Create One
                     </Link>
                 </p>
