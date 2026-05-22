@@ -37,7 +37,7 @@ const SignUpPage = () => {
         await authClient.signIn.social({
             provider: "google",
         });
-        router.push("/");
+        router.push("/login");
     }
 
     return (

@@ -119,7 +119,7 @@ const BookingCard = ({ data }) => {
                 onClick={handleCancelBooking} 
                 className="w-full md:w-auto text-center justify-center px-5 py-2 md:py-1.5 border border-red-200 text-red-500 hover:bg-red-50 text-xs font-bold rounded-xl transition-all duration-200 cursor-pointer flex items-center gap-1 active:scale-95"
             >
-                Cancel Booking
+                Cancel
             </button>
         ) : (
             <button className="w-full md:w-auto text-center justify-center px-5 py-2 md:py-1.5 border border-slate-200 text-slate-500 hover:text-slate-700 hover:bg-slate-50 text-xs font-semibold rounded-xl transition-all duration-200 cursor-pointer active:scale-95">

@@ -1,34 +1,48 @@
-# 🎓 StudyNook | Premium Co-Working & Study Space Booking Platform
+# 📚 StudyNook - Smart Study Space Booking Platform
 
-A modern, full-stack web application designed to help students, developers, and professionals find, book, and manage premium study rooms and productive co-working environments. Built with a visually striking dark-themed UI, real-time interactive dashboards, and lightning-fast performance.
-
-🔗 **Live Site URL:** [study-nook.vercel.app](https://study-nook-frontend.vercel.app/)
+StudyNook is a premium, modern, and highly responsive MERN stack application designed to simplify booking quiet, private study rooms and spaces in libraries, campuses, or co-working hubs. Built with a focus on seamless user experience, performance, and dark-themed premium design aesthetics.
 
 ---
 
-## ✨ Key Features & Functionality
+## 🚀 Live Demo & Links
+- **Live Client Application:** [https://study-nook-frontend.vercel.app](https://study-nook-frontend.vercel.app)
+- **Live Server API URL:** [https://your-live-backend-api.com](https://study-nook-server-ten.vercel.app/)
 
-* **Premium & Tailored Study Environments:** Explore a diverse catalog of pre-configured rooms designed for varying needs—ranging from **The Silent Oasis** (fully soundproofed for deep focus) and **Tech-Innovation Labs** (equipped with pro-grade coding setups) to **Brainstorming Dens** featuring interactive whiteboards.
-* **Intuitive & Smooth Booking System:** Authenticated users can instantly reserve time slots for individual study or group marathons through an interactive booking modal, featuring strict client-side verification and hassle-free, dynamic booking states.
-* **Comprehensive Owner Dashboard (Full CRUD):** Complete control for space owners to list new rooms, upload contextual asset specifications (floor level, amenities count, dynamic hourly rates), modify existing configurations on the fly via pop-up modals, and manage active listings securely.
-* **State-of-the-Art Secure Authentication:** Powered by a modern authentication layer providing persistent, seamless session management (`authClient.useSession`), ensuring dynamic user context on both server-side pre-rendering and instant client-side hydration.
-* **Immersive High-Fidelity UI/UX:** Styled using Tailwind CSS with a premium dark-themed aesthetic, modern cards, glassmorphic interactive layers, sticky booking sections, and fluid micro-interactions built optimized for technical professionals and modern students.
+---
+
+## ✨ Features
+
+### 🌟 Core Capabilities
+- **Instant Booking:** Book study slots effortlessly without waiting for manual approvals.
+- **Conflict-Free Scheduling:** An optimized scheduling layout ensures zero double-bookings or scheduling mishaps.
+- **Dynamic Theme Toggling:** Seamless transition between premium light and elegant dark modes powered by `next-themes` and `HeroUI`.
+- **Responsive Layouts:** Visually striking, pixel-perfect experiences optimized for mobile, tablet, and desktop screens.
+
+### 👤 For Students / Users
+- **Advanced Room Filtering:** Filter available rooms by location, capacity, hourly rates, and specific amenities (Wi-Fi, soundproofing, AC, whiteboard, projector).
+- **Personal Dashboard:** Track booking histories, manage upcoming reservations, or safely cancel slots with instant status synchronization.
+- **Dynamic Meta Titles:** Completely SEO-optimized routes showing page-specific browser dynamic tab titles without hydration errors.
+
+### 🛠️ For Administrators / Faculty
+- **Listing Management:** Add, update, and manage your campus or library study spaces dynamically with an interactive, data-driven interface.
+- **Real-Time Usage Tracking:** Keep tabs on room occupancy metrics and total cost configurations.
 
 ---
 
 ## 🛠️ Tech Stack & Architecture
 
-This project leverages the **MERN Stack** enhanced with next-generation production tools to ensure complete structural type safety, smooth animations, and high performance.
+### Frontend (Client-Side)
+- **Framework:** Next.js 14+ (App Router Architecture)
+- **UI & Components:** HeroUI (formerly NextUI)
+- **Styling:** Tailwind CSS (Custom Dark Theme Variables)
+- **Authentication:** NextAuth.js / Secure Credentials System
+- **Animations:** GSAP & Smooth Scrolling (Lenis)
+- **Icons & Alerts:** Lucide React, React Icons & React Hot Toast
 
-* **Frontend Architecture:** * **Next.js (App Router):** Utilized for optimized routing, fast rendering, and clean component structures.
-  * **HeroUI & daisyUI:** Integrated together to build a premium, highly cohesive, dark-themed responsive layout with production-ready components.
-  * **Tailwind CSS:** Used for writing clean utility-first styling and managing complex dark theme system configurations.
-  * **Framer Motion:** Powering complex UI micro-interactions, layout transitions, and page load entry animations for an immersive user experience.
+### Backend (Server-Side)
+- **Runtime Environment:** Node.js
+- **Framework:** Express.js
+- **Database:** MongoDB (Native Driver / Atlas Cloud)
+- **Security:** JSON Web Tokens (JWT) Verification for API Endpoints, CORS Policy Middleware
 
-* **Backend & Database:**
-  * **Node.js & Express.js:** Scalable server environment managing custom REST APIs, booking pipelines, and room access verification endpoints.
-  * **MongoDB:** A robust, flexible NoSQL database storing structured collections for user profiles, dynamic rooms, slots, and interactive user bookings.
-
-* **State & Authentication Layer:** * **Better-Auth (`authClient.useSession`):** Handles secure client-side and server-side state caching, managing owner permissions, and resolving session mismatches seamlessly during runtime.
-
-
+---
