@@ -13,7 +13,7 @@ export const metadata = {
 
 const MyListingPage = async () => {
     const session = await auth.api.getSession({
-        headers: await headers() // you need to pass the headers object.
+        headers: await headers() 
     })
 
     const { token } = await auth.api.getToken({
@@ -54,13 +54,8 @@ const MyListingPage = async () => {
                             href="/add-room"
                             className="inline-flex items-center gap-2 px-6 py-3 bg-[#C5A358] hover:bg-[#b0904a] text-[#0F172A] text-sm font-bold rounded-xl transition-all shadow-md shadow-[#C5A358]/10"
                         >
-                            <i className="ti ti-search text-sm" />
                             Add a New room
                         </Link>
-
-                        <p className="text-xs text-slate-600">
-                            500+ study rooms available to book
-                        </p>
 
                     </div>
                 </div> :

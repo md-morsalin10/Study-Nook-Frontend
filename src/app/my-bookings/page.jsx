@@ -54,7 +54,7 @@ const MyBookingPage = async () => {
                             href="/rooms"
                             className="inline-flex items-center gap-2 px-6 py-3 bg-[#C5A358] hover:bg-[#b0904a] text-[#0F172A] text-sm font-bold rounded-xl transition-all shadow-md shadow-[#C5A358]/10"
                         >
-                            <i className="ti ti-search text-sm" />
+                         
                             Explore Rooms
                         </Link>
 

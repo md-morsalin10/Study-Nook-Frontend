@@ -1,16 +1,20 @@
 "use client"
 import { authClient } from "@/lib/auth-client";
-import { ArrowRightFromSquare, Gear, Persons } from "@gravity-ui/icons";
+import { ArrowRightFromSquare, } from "@gravity-ui/icons";
 import { Avatar, Dropdown, Label } from "@heroui/react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+
 
 
 const NavbarProfileDropdown = () => {
+    const router = useRouter()
     const { data: session } = authClient.useSession();
     const user = session?.user
 
     const handleSignOut = async () => {
         await authClient.signOut();
+        router.push("/")
     }
 
     return (
@@ -43,7 +47,9 @@ const NavbarProfileDropdown = () => {
                     </div>
                     <Dropdown.Menu>
                         <Dropdown.Item id="dashboard" textValue="Dashboard">
-                            <Label>Dashboard</Label>
+                            <Link href={'/my-bookings'}>
+                                <Label>My Bookings</Label>
+                            </Link>
                         </Dropdown.Item>
                         <Dropdown.Item id="profile" textValue="Profile">
                             <Link href={'/my-profile'}>
@@ -52,8 +58,9 @@ const NavbarProfileDropdown = () => {
                         </Dropdown.Item>
                         <Dropdown.Item id="settings" textValue="Settings">
                             <div className="flex w-full items-center justify-between gap-2">
-                                <Label>Settings</Label>
-                                <Gear className="size-3.5 text-muted" />
+                                <Link href={'/my-listings'}>
+                                    <Label>My Listings</Label>
+                                </Link>
                             </div>
                         </Dropdown.Item>
                         <Dropdown.Item

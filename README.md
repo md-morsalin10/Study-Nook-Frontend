@@ -1,36 +1,26 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🎓 StudyNook | Premium Co-Working & Study Space Booking Platform
 
-## Getting Started
+A modern, full-stack web application designed to help students, developers, and professionals find, book, and manage premium study rooms and productive co-working environments. Built with a visually striking dark-themed UI, real-time interactive dashboards, and lightning-fast performance.
 
-First, run the development server:
+🔗 **Live Site URL:** [study-nook.vercel.app](https://study-nook-frontend.vercel.app/)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ✨ Key Features & Functionality
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+* **Premium & Tailored Study Environments:** Explore a diverse catalog of pre-configured rooms designed for varying needs—ranging from **The Silent Oasis** (fully soundproofed for deep focus) and **Tech-Innovation Labs** (equipped with pro-grade coding setups) to **Brainstorming Dens** featuring interactive whiteboards.
+* **Intuitive & Smooth Booking System:** Authenticated users can instantly reserve time slots for individual study or group marathons through an interactive booking modal, featuring strict client-side verification and hassle-free, dynamic booking states.
+* **Comprehensive Owner Dashboard (Full CRUD):** Complete control for space owners to list new rooms, upload contextual asset specifications (floor level, amenities count, dynamic hourly rates), modify existing configurations on the fly via pop-up modals, and manage active listings securely.
+* **State-of-the-Art Secure Authentication:** Powered by a modern authentication layer providing persistent, seamless session management (`authClient.useSession`), ensuring dynamic user context on both server-side pre-rendering and instant client-side hydration.
+* **Immersive High-Fidelity UI/UX:** Styled using Tailwind CSS with a premium dark-themed aesthetic, modern cards, glassmorphic interactive layers, sticky booking sections, and fluid micro-interactions built optimized for technical professionals and modern students.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🛠️ Tech Stack & Architecture
 
-To learn more about Next.js, take a look at the following resources:
+* **Frontend Framework:** Next.js (App Router, Version 16+) with Turbopack for lightning-fast hot module reloading.
+* **Styling & Motion:** Tailwind CSS for a highly cohesive utility-first design, interactive custom borders, animations, and micro-interactions.
+* **State & Authentication:** Secure, asynchronous session caching layers mapping owner permissions and access tokens dynamically.
+* **Performance Optimization:** Strategic implementation of hybrid state mounting and dynamic client-side hydration wrappers to entirely bypass layout shifts and server-client mismatch errors (Hydration Fixes).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
