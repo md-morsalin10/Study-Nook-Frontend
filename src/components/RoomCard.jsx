@@ -9,7 +9,7 @@ const RoomCard = ({ room }) => {
     const { _id, name, imageUrl, hourlyRate, floor, capacity, amenities } = room;
 
     return (
-        <Card className=" border border-gray-200 shadow-sm rounded-2xl overflow-hidden bg-white hover:shadow-md transition-shadow">
+        <Card className=" h-full flex flex-col border border-gray-200 shadow-sm rounded-2xl overflow-hidden bg-white hover:shadow-md transition-shadow">
 
 
             <div className="relative w-full h-55 p-3">
@@ -26,7 +26,7 @@ const RoomCard = ({ room }) => {
             </div>
 
 
-            <div className="px-4 py-0 flex flex-col gap-2">
+            <div className="px-4 py-0 flex flex-col gap-2 grow">
                 <div className="flex justify-between items-center mt-1">
                     <h3 className="text-[17px] font-bold text-gray-900 truncate">{name}</h3>
                     <div className="flex items-center gap-1">
@@ -50,7 +50,7 @@ const RoomCard = ({ room }) => {
                     {amenities.map((item) => (
                         <div
                             key={item}
-                            className="flex flex-wrap text-center items-center gap-2.5 bg-slate-50 border border-green-100 rounded-xl py-1"
+                            className="flex items-center justify-center bg-slate-50 border border-green-100/70 rounded-xl py-1 px-2 text-center"
                         >
     
                             <span className="text-xs flex items-center text-center font-medium text-[#0F172A]">

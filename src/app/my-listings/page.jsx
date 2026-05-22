@@ -1,3 +1,4 @@
+import FadeIn from '@/components/MotionWrapper/FadeIn';
 import RoomCard from '@/components/RoomCard';
 import { auth } from '@/lib/auth';
 import { headers } from 'next/headers';
@@ -64,12 +65,18 @@ const MyListingPage = async () => {
                     </div>
                 </div> :
                     <div className='space-y-3'>
-                        <h2 className='text-3xl font-bold text-[#0F172A] py-2'>My Room Listings</h2>
-                        <p className='text-muted text-sm py-2'>Manage your academic study spaces. Update availability, edit details, or
-                            remove rooms from the StudyNook catalog.</p>
+                        <FadeIn delay={0.1}>
+                            <h2 className='text-3xl font-bold text-[#0F172A] py-2'>My Room Listings</h2>
+                            <p className='text-muted text-sm py-2'>Manage your academic study spaces. Update availability, edit details, or
+                                remove rooms from the StudyNook catalog.</p>
+                        </FadeIn>
                         <div className='pt-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
                             {
-                                roomData.map(room => <RoomCard room={room} key={room._id} />)
+                                roomData.map((room, index) =>
+                                    <FadeIn key={room._id} delay={index * 0.1}>
+                                        <RoomCard room={room} />
+                                    </FadeIn>
+                                )
                             }
                         </div>
                     </div>
