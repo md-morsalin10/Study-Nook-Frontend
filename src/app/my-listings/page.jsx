@@ -31,7 +31,7 @@ const MyListingPage = async () => {
     console.log(roomData);
 
     return (
-        <div className='container mx-auto my-10'>
+        <div className='container mx-auto my-10 p-4'>
             {
                 roomData.length === 0 ? <div className="min-h-[60vh] flex items-center justify-center px-4 py-12">
                     <div className="bg-[#0F172A] border border-slate-800/60 rounded-3xl p-10 flex flex-col items-center justify-center text-center max-w-md w-full shadow-xl gap-6">

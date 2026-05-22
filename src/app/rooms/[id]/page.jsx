@@ -27,7 +27,7 @@ const RoomDetailsPage = async ({ params }) => {
         }
     });
 
-    console.log(res, "from details page");
+    // console.log(res, "from details page");
 
 
     if (!res.ok) {
@@ -44,7 +44,7 @@ const RoomDetailsPage = async ({ params }) => {
 
     const room = await res.json();
 
-    console.log(room, "room from details");
+    // console.log(room, "room from details");
 
 
     const {

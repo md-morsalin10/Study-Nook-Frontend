@@ -23,8 +23,10 @@ const NavbarProfileDropdown = () => {
                 <Dropdown.Trigger className="rounded-full">
                     <Avatar>
                         <Avatar.Image
+                            referrerPolicy="no-referrer"
                             alt={user?.name}
                             src={user?.image}
+                            
                         />
                         <Avatar.Fallback delayMs={600}>{user?.name[0]}</Avatar.Fallback>
                     </Avatar>

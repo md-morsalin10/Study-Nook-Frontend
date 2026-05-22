@@ -35,10 +35,10 @@ const BookingSection = ({ room }) => {
                     </div>
                 </div>
 
-                {/* Card Body */}
+              
                 <div className="p-6 flex flex-col gap-4">
 
-                    {/* Info rows */}
+                    
                     <div className="flex flex-col gap-3">
                         {[
                             { label: 'Capacity', value: `${capacity} people` },

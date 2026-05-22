@@ -6,9 +6,9 @@ import FeaturesRoom from "@/components/FeaturesRoom";
 export default function Home() {
   return (
     <div>
-     <Banner/>
-     <FeaturesRoom/>
-     <ExtraHomeSection/>
+      <Banner />
+      <FeaturesRoom />
+      <ExtraHomeSection />
     </div>
   );
 }

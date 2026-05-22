@@ -22,7 +22,7 @@ const SignUpPage = () => {
             password: users.password,
         })
         console.log(data);
-        
+
 
         if (data) {
             toast.success('Sign up Successful');
@@ -37,6 +37,7 @@ const SignUpPage = () => {
         await authClient.signIn.social({
             provider: "google",
         });
+        router.push("/");
     }
 
     return (

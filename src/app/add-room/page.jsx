@@ -35,7 +35,7 @@ const AddRoomPage = () => {
         data.ownerName = user?.name
 
 
-        console.log(data);
+        // console.log(data);
 
         const { data: tokenData } = await authClient.token()
 
@@ -49,14 +49,15 @@ const AddRoomPage = () => {
         })
         const roomData = await res.json();
         // console.log(roomData);
-        
+
         if (roomData?.insertedId) {
             toast.success('Room added successfully! 🎉');
+            router.push('/my-listings')
+
         }
         else {
             toast.error('Failed to add room. Please try again.');
         }
-        router.push('/my-listings')
 
     };
 

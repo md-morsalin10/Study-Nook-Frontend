@@ -32,7 +32,7 @@ const MyBookingPage = async () => {
     console.log(BookingData.length);
 
     return (
-        <div className='container mx-auto py-4 space-y-4'>
+        <div className='container mx-auto py-4 space-y-4 p-6 md:p-4'>
             {
                 BookingData.length == 0 ? <div className="min-h-[60vh] flex items-center justify-center px-4 py-12">
                     <div className="bg-[#0F172A] border border-slate-800/60 rounded-3xl p-10 flex flex-col items-center justify-center text-center max-w-md w-full shadow-xl gap-6">

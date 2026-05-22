@@ -81,7 +81,7 @@ const Navbar = () => {
 
                         <Button
                             onClick={handleSignOut}
-                            className={'rounded-xl hidden md:block'}
+                            className={'rounded-sm hidden md:block font-bold bg-[#C5A358]'}
                             variant='danger'>Logout</Button>
                     </> : <>
                         <Link href={'/login'}>

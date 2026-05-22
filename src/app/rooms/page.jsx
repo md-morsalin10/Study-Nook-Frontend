@@ -52,7 +52,7 @@ const AllRoomPage = async ({ searchParams }) => {
                             </div>
                         </FadeIn>
 
-                        {/* min rate */}
+                
                         <FadeIn delay={0.2}>
                             <div className="flex flex-col gap-1.5">
                                 <label className="text-xs font-semibold text-gray-600 uppercase">Price ($)</label>
@@ -74,7 +74,7 @@ const AllRoomPage = async ({ searchParams }) => {
                                 </div>
                             </div>
                         </FadeIn>
-                        {/* max rete */}
+                      
 
                         <FadeIn delay={0.3}>
                             <div className="flex flex-col gap-1.5">
