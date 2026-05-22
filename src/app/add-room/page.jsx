@@ -69,7 +69,7 @@ const AddRoomPage = () => {
                     <h2 className='text-3xl font-bold text-gray-900 tracking-tight'>Add a New Room</h2>
                     <p className="text-gray-500 mt-2 text-sm">Share your study space with the community</p>
                 </div>
-                <Card className="bg-white shadow-xl shadow-gray-200/60 border border-gray-100 rounded-2xl overflow-hidden">
+                <Card className="bg-white shadow-xl shadow-gray-200/60 border border-gray-200 rounded-2xl overflow-hidden">
                     <form onSubmit={onSubmit} className="p-6 md:p-10 space-y-6">
 
                         <div className="w-full">

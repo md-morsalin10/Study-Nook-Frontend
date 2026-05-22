@@ -63,7 +63,7 @@ const EditModal = ({ room }) => {
                     variant="secondary">Edit</Button>
                 <Modal.Backdrop>
                     <Modal.Container placement="auto">
-                        <Modal.Dialog className="sm:max-w-2xl h-full">
+                        <Modal.Dialog className="sm:max-w-2xl h-full border border-gray-100">
                             <Modal.CloseTrigger />
                             <Modal.Body className="p-6">
                                 <Surface variant="default">
