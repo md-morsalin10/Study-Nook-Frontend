@@ -26,7 +26,7 @@ const SignUpPage = () => {
 
         if (data) {
             toast.success('Sign up Successful');
-            router.push("/");
+            router.push("/login");
         }
         if (error) {
             toast.error(error.message);
