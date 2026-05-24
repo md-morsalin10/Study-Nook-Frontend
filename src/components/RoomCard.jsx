@@ -32,7 +32,7 @@ const RoomCard = ({ room }) => {
                         <motion.div
                             initial={{ opacity: 0 }}
                             whileHover={{ opacity: 1 }}
-                            className="absolute inset-0 bg-gradient-to-t from-[#0F172A]/30 to-transparent rounded-xl"
+                            className="absolute inset-0 bg-linear-to-t from-[#0F172A]/30 to-transparent rounded-xl"
                         />
                     </div>
                 </div>
